@@ -2,13 +2,23 @@ CDP4 experiment on the NRP
 ====================
 
 This repository contain the highlight CDP4 experiment on the NRP.
+Here is a block diagram of the components that will be integrated in this experiment for March 2018:
+
+![CDP4 experiment](img/experiment.png "Components of CDP4 experiment")
+
 
 Installation
 -----------
 
-- Clone this folder to the ``Experiments`` folder
-- The following repos are needed in the `GazeboRosPackages` folder:
--- [embodied_attention](git@github.com:HBPNeurorobotics/embodied_attention.git)
--- [holographic](git@github.com:HBPNeurorobotics/holographic.git)
+* Clone this folder into the ``Experiments/`` folder
+* The following repos are needed in the `GazeboRosPackages/` folder:
+  * [embodied_attention](https://github.com/HBPNeurorobotics/embodied_attention)
+  * **Optinal** - [holographic](https://github.com/HBPNeurorobotics/holographic)
 
-By the time you read this, these repos should be submodules of proper folders.
+Don't forget to run ``catkin_make`` in your ``GazeboRosPackages/``.
+
+Additionally, the following libraries should be installed in your platform virtual environment (``~/.opt/platform_venv``):
+* keras==1.2.2
+* theano==0.9.0
+* scikit-image
+* wget (used to download the weights/topology of the saliency network on first run)
