@@ -8,13 +8,13 @@
     <timeout>16000</timeout>
     <configuration type="3d-settings" src="cdp4.3ds"/>
     <maturity>production</maturity>
-    <environmentModel src="empty_world/empty_world.sdf">
-        <robotPose x="0.0" y="0.0" z="0.8" ux="0.0" uy="0.0" uz="1.57" theta="0.70710689672598181"/>
+    <environmentModel src="codejam_2017_tensorflow_world/tensorflow_world.sdf">
+        <robotPose x="3.305" y="-0.97" z="0.608" ux="0.0" uy="0.0" uz="0.0" theta="0.0"/>
     </environmentModel>
     <bibiConf src="cdp4.bibi"/>
     <cameraPose>
-        <cameraPosition x="2.5" y="0" z="1.8"/>
-        <cameraLookAt x="0" y="0" z="0.6"/>
+        <cameraPosition x="3.25" y="4.75" z="4.25"/>
+        <cameraLookAt x="0" y="0" z="0.5"/>
     </cameraPose>
     <rosLaunch src="nrp.launch"/>
 </ExD>
