@@ -29,6 +29,6 @@ catkin_make
 cd `mktemp -d`
 git clone https://github.com/tensorflow/models
 cd models/research/slim
-python setup.py install
+python setup.py install --user
 
 cd $DIR
