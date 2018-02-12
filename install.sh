@@ -2,8 +2,7 @@
 
 DIR=$PWD
 
-cd ~/.opt/platform_venv
-source bin/activate
+source ~/.opt/platform_venv/bin/activate
 
 cd `dirname $0`
 pip install -r requirements.txt
