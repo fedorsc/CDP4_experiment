@@ -2,7 +2,7 @@
 
 DIR=$PWD
 
-source ~/.opt/platform_venv/bin/activate
+source $VIRTUAL_ENV/bin/activate
 
 cd `dirname $0`
 pip install -r requirements.txt
