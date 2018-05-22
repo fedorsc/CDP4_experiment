@@ -22,3 +22,4 @@ for i in range(0, 10):
         time.sleep(2)
     print "Renaming"
     os.rename(fname_base + ".bag", fname_base + "_" + str(i) + ".bag")
+    time.sleep(30)
