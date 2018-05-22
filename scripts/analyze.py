@@ -27,6 +27,20 @@ def split_bag(bag):
         b.close()
     print
 
+def trim_bag(bag):
+    print '### Trimming ###'
+    status_msgs = [msg for msg in bag.read_messages('/hollie/camera/left/camera_info')]
+    timestamp = status_msgs[0].timestamp
+    print 'Going to split at: ' + str(timestamp)
+
+    new_bag = rosbag.Bag(bag.filename.split('.')[0] + ':trimmed.bag', 'w')
+    for topic, msg, t in bag.read_messages():
+        if t >= timestamp:
+            new_bag.write(topic, msg, t)
+
+    new_bag.close()
+    print
+
 def general(bag, plot):
     print '### General ###'
     droppings = [msg for msg in bag.read_messages('/status') if x.message.data == 'dropping']
@@ -351,6 +365,8 @@ def main(argv):
         print "##### Evaluating %s #####" % bag.filename
         if cmd == 'split':
             split_bag(bag)
+        elif cmd == 'trim':
+            trim_bag(bag)
         elif cmd == 'general':
             general(bag, plot)
         elif cmd == 'rates':
@@ -378,7 +394,7 @@ def main(argv):
             bins(bag, plot)
         else:
             print 'Command not found or not specified'
-            print 'Commands: split, general, rates, durations, amplitudes, targets, rois, amp_dur, bins'
+            print 'Commands: split, trim, general, rates, durations, amplitudes, targets, rois, amp_dur, bins'
 
 if __name__ == '__main__':
    main(sys.argv[1:])
