@@ -21,5 +21,5 @@ for i in range(0, 10):
     while os.path.isfile(fname_base + ".bag.active"):
         time.sleep(2)
     print "Renaming"
-    os.rename(fname_base + ".bag", fname_base + "_" + str(i) + ".bag")
+    os.rename(fname_base + ".bag", fname_base + "_" + str(time.strftime("%Y-%m-%d-%H:%M:%S")) + ".bag")
     time.sleep(30)
