@@ -7,6 +7,7 @@ vc = VirtualCoach(environment='local')
 fname_base = "/home/nrpuser/.ros/cdp4/experiment"
 
 for i in range(0, 10):
+    date = time.strftime("%Y-%m-%d-%H:%M:%S")
     print "### Running experiment %d" % i
     print "Launching"
     sim = vc.launch_experiment('cdp4')
@@ -21,5 +22,5 @@ for i in range(0, 10):
     while os.path.isfile(fname_base + ".bag.active"):
         time.sleep(2)
     print "Renaming"
-    os.rename(fname_base + ".bag", fname_base + "_" + str(time.strftime("%Y-%m-%d-%H:%M:%S")) + ".bag")
+    os.rename(fname_base + ".bag", fname_base + "_" + str(date) + ".bag")
     time.sleep(30)
